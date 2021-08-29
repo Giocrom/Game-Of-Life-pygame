@@ -31,9 +31,8 @@ def blinker(x, y, matrix, y_max, x_max, orientation):
     shape_cells = 3
     shape_size_y = 3
     shape_size_x = 1
-    orientation = orientation & 0b0011
 
-    if orientation == 1:
+    if orientation == 0b01 or orientation == 0b11:
         shape_size_y = 1
         shape_size_x = 3
 
@@ -44,7 +43,7 @@ def blinker(x, y, matrix, y_max, x_max, orientation):
         x_offset = shape_size_x - x_room
         x -= x_offset
 
-    if orientation == 1:
+    if orientation == 0b01 or orientation == 0b11:
         g.numOfCells += shape_cells - (matrix[y][x] + matrix[y][x + 1] + matrix[y][x + 2])
         matrix[y][x] = 1
         matrix[y][x + 1] = 1
