@@ -118,8 +118,8 @@ def main():
             if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
                 paused = not paused
 
-            if pygame.mouse.get_pressed(num_buttons=3) == (0, 1, 0):
-                orientation += 0b0001
+            if event.type == MOUSEWHEEL:
+                orientation += (0b0001 * event.y)
                 orientation = orientation & 0b0011
 
             if pygame.mouse.get_pressed(num_buttons=3) == (1, 0, 0):
@@ -134,7 +134,7 @@ def main():
                 draw = g.draw_handler.get(num_pressed, 0b0000)
                 draw(x_pos, y_pos, g.new_cells, g.rows, g.cols, orientation)
 
-            if pygame.mouse.get_pressed(num_buttons=3) == (0, 0, 1):
+            elif pygame.mouse.get_pressed(num_buttons=3) == (0, 0, 1):
                 (x, y) = pygame.mouse.get_pos()
                 # print(int(y / cell_size), int(x / cell_size))
                 y_pos = int(y / g.cell_size)
