@@ -1,5 +1,5 @@
 from Functions import board
-from Functions import my_shapes
+from Functions import my_shapes as s
 import pygame
 
 pygame.font.init()
@@ -40,7 +40,7 @@ shapes = {0b0000: img_cell,
           }
 
 handler = {pygame.K_0: 0b0000, pygame.K_1: 0b0100, pygame.K_2: 0b1000, pygame.K_3: 0b1100}
-draw_handler = {0b0000: my_shapes.cell, 0b0100: my_shapes.block, 0b1000: my_shapes.blinker, 0b1100: my_shapes.spaceship}
+draw_handler = {0b0000: s.cell, 0b0100: s.block, 0b1000: s.blinker, 0b1100: s.spaceship}
 
 screen_width = 1200
 screen_height = 600
