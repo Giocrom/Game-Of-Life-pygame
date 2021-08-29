@@ -84,7 +84,6 @@ def main():
     pygame.display.set_icon(g.logo)
     pygame.display.set_caption("Game Of Life by Giocrom")
 
-    
     update_matrix(g.rows, g.cols, g.new_cells, g.current_cells)
     screen = pygame.display.set_mode((g.screen_width, g.screen_height))
 
@@ -97,6 +96,7 @@ def main():
     orientation = 0b0000
     paused = False
     pygame.display.flip()
+
 
     running = True
     while running:
@@ -146,13 +146,15 @@ def main():
                     g.new_cells[y_pos][x_pos] = 0
                     g.numOfCells -= 1
 
+
         screen.fill((0, 0, 0))
         display_counter = g.default_font.render("Alive cells: " + str(g.numOfCells), False, (255, 255, 255))
 
-        pygame.draw.line(screen, (255, 255, 255), (0, g.screen_height - (2 * g.margin) - g.font_size),
-                         (g.screen_width, g.screen_height - (2 * g.margin) - g.font_size), 1)
+        pygame.draw.line(screen, (255, 255, 255), (0, g.screen_height - g.banner),
+                         (g.screen_width, g.screen_height - g.banner), 1)
+        pygame.draw.line(screen, (255, 255, 255), (0, g.screen_height), (g.screen_width, g.screen_height), 1)
 
-        screen.blit(display_counter, (50, g.screen_height - (g.banner/2) - (g.font_size/2)))
+        screen.blit(display_counter, (50, g.screen_height - g.banner + g.margin))
 
         orientation = orientation & 0b0011
         screen.blit(g.shapes.get((num_pressed + orientation), g.img_cell),
