@@ -21,23 +21,23 @@ img_spaceships_upright = pygame.image.load("Docs/spaceships_upright36x36.png")
 img_spaceships_upleft = pygame.image.load("Docs/spaceships_upleft36x36.png")
 img_spaceships_bottomleft = pygame.image.load("Docs/spaceships_bottomleft36x36.png")
 
-shapes = {0b0000: img_cell,
+shapes = {
+    0b0000: img_cell,
+    0b0100: img_block,
+    0b0101: img_block,
+    0b0110: img_block,
+    0b0111: img_block,
 
-          0b0100: img_block,
-          0b0101: img_block,
-          0b0110: img_block,
-          0b0111: img_block,
+    0b1000: img_blinker_v,
+    0b1001: img_blinker_h,
+    0b1010: img_blinker_v,
+    0b1011: img_blinker_h,
 
-          0b1000: img_blinker_v,
-          0b1001: img_blinker_h,
-          0b1010: img_blinker_v,
-          0b1011: img_blinker_h,
-
-          0b1100: img_spaceships_bottomright,
-          0b1101: img_spaceships_upright,
-          0b1110: img_spaceships_upleft,
-          0b1111: img_spaceships_bottomleft
-          }
+    0b1100: img_spaceships_bottomright,
+    0b1101: img_spaceships_upright,
+    0b1110: img_spaceships_upleft,
+    0b1111: img_spaceships_bottomleft
+    }
 
 handler = {pygame.K_0: 0b0000, pygame.K_1: 0b0100, pygame.K_2: 0b1000, pygame.K_3: 0b1100}
 draw_handler = {0b0000: s.cell, 0b0100: s.block, 0b1000: s.blinker, 0b1100: s.spaceship}
