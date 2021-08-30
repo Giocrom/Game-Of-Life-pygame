@@ -23,6 +23,7 @@ img_spaceships_bottomleft = pygame.image.load("Docs/spaceships_bottomleft36x36.p
 
 shapes = {
     0b0000: img_cell,
+    
     0b0100: img_block,
     0b0101: img_block,
     0b0110: img_block,
