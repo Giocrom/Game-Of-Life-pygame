@@ -107,20 +107,20 @@ def main():
             # if event.type == pygame.KEYDOWN and event.key == pygame.K_f:
             #     pygame.display.toggle_fullscreen()
 
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_s:      # Pause the Game
+                paused = not paused
+
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_d:      # Delete the entire board
                 board.initialize_matrix(g.rows, g.cols, g.new_cells, 0)
                 update_matrix(g.rows, g.cols, g.current_cells, g.new_cells)
                 g.numOfCells = 0
 
-            if event.type == pygame.KEYDOWN:
+            elif event.type == pygame.KEYDOWN:      # Detect if a number is being pressed and which one
                 num_pressed = g.handler.get(event.key, 0)
 
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-                paused = not paused
-
-            if event.type == MOUSEWHEEL:
-                orientation += (0b0001 * event.y)
-                orientation = orientation & 0b0011
+            elif event.type == MOUSEWHEEL:
+                orientation += (0b0001 * event.y)       # positive if the mouse wheel is rolled up, negative if down
+                orientation = orientation & 0b0011      # keeping the orientation value between 0000 and 0011
 
             if pygame.mouse.get_pressed(num_buttons=3) == (1, 0, 0):
                 (x, y) = pygame.mouse.get_pos()
