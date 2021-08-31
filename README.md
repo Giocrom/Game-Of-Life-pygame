@@ -14,4 +14,4 @@ Here's the full list of things you can do right now in-game:
   * 3: Spaceship
 * Change the Orientation of a shape using the Mouse Wheel
 
-## Beta Version 1.0
+## Beta Version 1.1
